@@ -15,7 +15,6 @@ def optimizationParam(x):
     # Initialize totals
     total_latency = 0
     total_power = 0
-    total_area = 0
     
     # Iterate through the indices in x
     for index in x:
@@ -23,13 +22,11 @@ def optimizationParam(x):
             compressor = params['compressors'][index]
             total_latency += compressor['latency']
             total_power += compressor['power']
-            total_area += compressor['area']
         else:
             raise ValueError(f"Index {index} is out of range for compressor_variants.")
     
     # Return the calculated totals
     return {
         total_latency,
-        total_power,
-        total_area
+        total_power
     }
